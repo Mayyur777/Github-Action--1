@@ -32,7 +32,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Execute shell script
         run: |
-          chmod -x shell-script.sh
+          chmod -x .github/workflows/shell-script.sh
           .github/workflows/shell-script.sh
 
           
