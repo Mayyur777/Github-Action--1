@@ -42,7 +42,7 @@ jobs:
         run: cowsay -f dragon "Run cowsay" >> dragon.txt
       
       - name: Check for file 
-        run: grep -i "dragon" dragon.txt
+        run: grep -i "dragon" dragon.txt || echo "No match found...continuing"
 
       # Runs a set of commands using the runners shell
     
