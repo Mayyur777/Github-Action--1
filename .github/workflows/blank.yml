@@ -31,7 +31,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cat .github/workflows/README.md
+        run: |
+          ls 
+          cat .github/workflows/README.md
+
+      - name: Generate ASCII artwork
+        run: cowsay -f dragon "Run cowsay" >> dragon.txt    
 
       # Runs a set of commands using the runners shell
     
