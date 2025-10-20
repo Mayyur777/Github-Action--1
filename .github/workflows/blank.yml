@@ -36,6 +36,7 @@ jobs:
           .github/workflows/shell-script.sh
   
   Test_job:
+      needs: build_job
       runs-on: ubuntu-latest
       steps:
     # The type of runner that the job will run on
@@ -44,7 +45,7 @@ jobs:
         run: grep -i "dragon" dragon.txt || echo "No match found...continuing"
 
   Deploy_job:
-
+      needs: Test_job
       runs-on: ubuntu-latest
       steps:
 
