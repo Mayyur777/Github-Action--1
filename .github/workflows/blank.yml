@@ -39,7 +39,7 @@ jobs:
         run: sudo apt-get install cowsay -y
 
       - name: Generate ASCII artwork
-        run: cowsay -f dragon "Run cowsay" >> dragon.txt '
+        run: cowsay -f dragon "Run cowsay" >> dragon.txt
       
       - name: Check for file 
         run: grep -i "dragon" dragon.txt
