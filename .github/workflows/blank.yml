@@ -34,12 +34,23 @@ jobs:
         run: |
           chmod +x .github/workflows/shell-script.sh
           .github/workflows/shell-script.sh
+        
+      - name: Upload artifacts  
+        uses: actions/upload-artifact@v4
+        with:
+          name: dragon_artifact
+          path: .github/workflows 
   
   Test_job:
       needs: build_job
       runs-on: ubuntu-latest
       steps:
     # The type of runner that the job will run on
+      - name: download artifacts  
+        uses: actions/download-artifact@v4
+        with:
+          name: dragon_artifact
+          path: .github/workflows
       
       - name: Check if the file is created 
         run: grep -i "dragon" dragon.txt || echo "No match found...continuing"
@@ -48,11 +59,15 @@ jobs:
       needs: Test_job
       runs-on: ubuntu-latest
       steps:
-
-      - name: Execute shell script
+      - name: dowload artifacts  
+        uses: actions/download-artifact@v4
+        with:
+            name: dragon_artifact
+            path: .github/workflows
+      - name: change mode and execute
         run: |
           chmod +x .github/workflows/shell-script.sh
-          .github/workflows/shell-script.sh
+          .github/workflows/shell-script.sh  
 
 
           
