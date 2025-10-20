@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: cat README.md
+        run: cat .github/workflows/README.md
 
       # Runs a set of commands using the runners shell
     
