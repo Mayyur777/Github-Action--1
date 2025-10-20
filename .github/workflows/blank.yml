@@ -35,8 +35,14 @@ jobs:
           ls 
           cat .github/workflows/README.md
 
+      - name: Install cowsay
+        run: sudo apt-get install cowsay -y
+
       - name: Generate ASCII artwork
-        run: cowsay -f dragon "Run cowsay" >> dragon.txt    
+        run: cowsay -f dragon "Run cowsay" >> dragon.txt '
+      
+      - name: Check for file 
+        run: grep -i "dragon" dragon.txt
 
       # Runs a set of commands using the runners shell
     
