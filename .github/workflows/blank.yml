@@ -30,21 +30,8 @@ jobs:
         run: echo "This is the first Github action project"
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: |
-          ls 
-          cat .github/workflows/README.md
-
-      - name: Install cowsay
-        run: sudo apt-get install cowsay -y
-
-      - name: Generate ASCII artwork
-        run: cowsay -f dragon "Run cowsay" >> dragon.txt
-      
-      - name: Check for file 
-        run: | 
-          grep -i "dragon" dragon.txt || echo "No match found...continuing"
-          cat dragon.txt
-
+      - name: Execute shell script
+        run: .github/workflows/shell-script.sh
+          
       # Runs a set of commands using the runners shell
     
